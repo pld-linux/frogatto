@@ -1,4 +1,4 @@
-Summary:	An open-source “platformer” game
+Summary:	An open-source "platformer" game
 Name:		frogatto
 Version:	1.1.1
 Release:	1
@@ -23,12 +23,12 @@ BuildRequires:	zlib-devel
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
 %description
-Frogatto is an open-source “platformer” game, which means you’re given
+Frogatto is an open-source "platformer" game, which means you're given
 a cross-section view into the world, and you help a small green fellow
 named Frogatto walk and jump between solid footholds whilst you lead
-him through his story. There’s a long history to the genre, so just by
+him through his story. There's a long history to the genre, so just by
 being in it we inevitably have a lot in common with other games,
-however, we’re not trying to clone any specific game.
+however, we're not trying to clone any specific game.
 
 %prep
 %setup -q
