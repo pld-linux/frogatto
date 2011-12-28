@@ -1,0 +1,10 @@
+--- frogatto-1.1.1/src/custom_object_functions.cpp~	2011-12-28 14:37:26.804928334 +0100
++++ frogatto-1.1.1/src/custom_object_functions.cpp	2011-12-28 15:12:46.408055071 +0100
+@@ -1860,7 +1860,6 @@
+ 	}
+ 
+ 	ASSERT_LOG(docname.empty() == false, "DOCUMENT NAME GIVEN TO get_document() IS EMPTY");
+-	ASSERT_LOG(docname[0] != '/', "DOCUMENT NAME BEGINS WITH / " << docname);
+ 	ASSERT_LOG(std::adjacent_find(docname.begin(), docname.end(), consecutive_periods) == docname.end(), "DOCUMENT NAME CONTAINS ADJACENT PERIODS " << docname);
+ 
+ 	const wml::schema* sch = NULL;
