@@ -1,7 +1,7 @@
 Summary:	An open-source "platformer" game
 Name:		frogatto
 Version:	1.1.1
-Release:	1
+Release:	2
 License:	GPL v3+
 Group:		X11/Applications/Games
 Source0:	http://www.frogatto.com/files/%{name}-%{version}.tar.bz2
@@ -42,6 +42,8 @@ however, we're not trying to clone any specific game.
 %{__sed} -i 's,data/,%{_datadir}/frogatto/data/,g' `find -name "*.[ch]pp" -o -name "*.po*" -o -name "*.cfg"`
 %{__sed} -i 's,./images/,%{_datadir}/frogatto/images/,g' `find -name "*.cpp"`
 %{__sed} -i 's,./locale/,%{_datadir}/locale/,g' src/i18n.cpp
+%{__sed} -i 's,music/,%{_datadir}/frogatto/music/,g' src/sound.cpp
+%{__sed} -i 's,sounds/,%{_datadir}/frogatto/sounds/,g' src/sound.cpp
 
 %build
 %{__make} \
@@ -57,6 +59,8 @@ cp -a game $RPM_BUILD_ROOT%{_bindir}/frogatto
 cp -a data $RPM_BUILD_ROOT%{_datadir}/frogatto
 cp -a images $RPM_BUILD_ROOT%{_datadir}/frogatto
 cp -a locale/* $RPM_BUILD_ROOT%{_datadir}/locale
+cp -a music $RPM_BUILD_ROOT%{_datadir}/frogatto
+cp -a sounds $RPM_BUILD_ROOT%{_datadir}/frogatto
 
 %find_lang %{name} --all-name
 
