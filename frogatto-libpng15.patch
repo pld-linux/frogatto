@@ -1,0 +1,10 @@
+--- frogatto-1.1.1/src/IMG_savepng.cpp~	2012-02-13 16:49:07.482666538 +0100
++++ frogatto-1.1.1/src/IMG_savepng.cpp	2012-02-13 16:49:38.492863917 +0100
+@@ -27,6 +27,7 @@
+ 
+ #ifdef IMPLEMENT_SAVE_PNG
+ #include <png.h>
++#include <zlib.h>
+ #endif
+ 
+ #include <stdlib.h>
