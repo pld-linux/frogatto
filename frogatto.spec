@@ -1,13 +1,14 @@
 Summary:	An open-source "platformer" game
 Name:		frogatto
 Version:	1.1.1
-Release:	4
+Release:	5
 License:	GPL v3+
 Group:		X11/Applications/Games
 Source0:	http://www.frogatto.com/files/%{name}-%{version}.tar.bz2
 # Source0-md5:	bf5a2ee4c3254a424766895ff250758b
 Patch0:		%{name}-makefile.patch
 Patch1:		%{name}-assertion.patch
+Patch2:		%{name}-libpng15.patch
 URL:		http://www.frogatto.com/
 BuildRequires:	OpenGL-GLU-devel
 BuildRequires:	OpenGL-devel
@@ -34,6 +35,7 @@ however, we're not trying to clone any specific game.
 %setup -q
 %patch0 -p1
 %patch1 -p1
+%patch2 -p1
 
 # fix linking with our boost libs
 %{__sed} -i 's,-mt,,g' Makefile
