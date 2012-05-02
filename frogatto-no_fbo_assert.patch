@@ -1,0 +1,11 @@
+--- frogatto-1.1.1/src/texture_frame_buffer.cpp.orig	2012-05-02 23:03:34.654597749 +0200
++++ frogatto-1.1.1/src/texture_frame_buffer.cpp	2012-05-02 23:05:23.709618026 +0200
+@@ -94,7 +94,7 @@
+ 
+ 	// check FBO status
+ 	GLenum status = EXT_CALL(glCheckFramebufferStatus)(EXT_MACRO(GL_FRAMEBUFFER));
+-	ASSERT_EQ(status, EXT_MACRO(GL_FRAMEBUFFER_COMPLETE));
++//	ASSERT_EQ(status, EXT_MACRO(GL_FRAMEBUFFER_COMPLETE));
+ 
+ 	// switch back to window-system-provided framebuffer
+ 	EXT_CALL(glBindFramebuffer)(EXT_MACRO(GL_FRAMEBUFFER), video_framebuffer_id);
