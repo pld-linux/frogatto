@@ -9,7 +9,6 @@ Source0:	http://www.frogatto.com/files/%{name}-%{version}.tar.bz2
 Patch0:		%{name}-makefile.patch
 Patch1:		%{name}-assertion.patch
 Patch2:		%{name}-libpng15.patch
-Patch3:		%{name}-no_fbo_assert.patch
 URL:		http://www.frogatto.com/
 BuildRequires:	OpenGL-GLU-devel
 BuildRequires:	OpenGL-devel
@@ -37,7 +36,6 @@ however, we're not trying to clone any specific game.
 %patch0 -p1
 %patch1 -p1
 %patch2 -p1
-%patch3 -p1
 
 # fix linking with our boost libs
 %{__sed} -i 's,-mt,,g' Makefile
