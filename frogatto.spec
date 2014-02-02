@@ -1,7 +1,7 @@
 Summary:	An open-source "platformer" game
 Name:		frogatto
 Version:	1.1.1
-Release:	13
+Release:	14
 License:	GPL v3+
 Group:		X11/Applications/Games
 Source0:	http://www.frogatto.com/files/%{name}-%{version}.tar.bz2
