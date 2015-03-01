@@ -1,7 +1,7 @@
 Summary:	An open-source "platformer" game
 Name:		frogatto
 Version:	1.1.1
-Release:	16
+Release:	17
 License:	GPL v3+
 Group:		X11/Applications/Games
 Source0:	http://www.frogatto.com/files/%{name}-%{version}.tar.bz2
@@ -21,6 +21,7 @@ BuildRequires:	ccache
 BuildRequires:	glew-devel
 BuildRequires:	sed >= 4.0
 BuildRequires:	zlib-devel
+Requires:	%{name}-data = %{version}-%{release}
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
 %description
@@ -30,6 +31,16 @@ named Frogatto walk and jump between solid footholds whilst you lead
 him through his story. There's a long history to the genre, so just by
 being in it we inevitably have a lot in common with other games,
 however, we're not trying to clone any specific game.
+
+%package data
+Summary:	data for frogatto
+Group:		X11/Applications/Games
+%if "%{_rpmversion}" >= "5"
+BuildArch:	noarch
+%endif
+
+%description data
+data for frogatto.
 
 %prep
 %setup -q
@@ -43,7 +54,7 @@ however, we're not trying to clone any specific game.
 # set proper paths
 %{__sed} -i 's,data/,%{_datadir}/frogatto/data/,g' `find -name "*.[ch]pp" -o -name "*.po*" -o -name "*.cfg"`
 %{__sed} -i 's,./images/,%{_datadir}/frogatto/images/,g' `find -name "*.cpp"`
-%{__sed} -i 's,./locale/,%{_datadir}/locale/,g' src/i18n.cpp
+%{__sed} -i 's,./locale/,%{_localedir}/,g' src/i18n.cpp
 %{__sed} -i 's,music/,%{_datadir}/frogatto/music/,g' src/sound.cpp
 %{__sed} -i 's,sounds/,%{_datadir}/frogatto/sounds/,g' src/sound.cpp
 
@@ -55,12 +66,12 @@ however, we're not trying to clone any specific game.
 
 %install
 rm -rf $RPM_BUILD_ROOT
-install -d $RPM_BUILD_ROOT{%{_bindir},%{_datadir}/frogatto,%{_datadir}/locale}
+install -d $RPM_BUILD_ROOT{%{_bindir},%{_datadir}/frogatto,%{_localedir}}
 
 cp -a game $RPM_BUILD_ROOT%{_bindir}/frogatto
 cp -a data $RPM_BUILD_ROOT%{_datadir}/frogatto
 cp -a images $RPM_BUILD_ROOT%{_datadir}/frogatto
-cp -a locale/* $RPM_BUILD_ROOT%{_datadir}/locale
+cp -a locale/* $RPM_BUILD_ROOT%{_localedir}
 cp -a music $RPM_BUILD_ROOT%{_datadir}/frogatto
 cp -a sounds $RPM_BUILD_ROOT%{_datadir}/frogatto
 
@@ -73,4 +84,7 @@ rm -rf $RPM_BUILD_ROOT
 %defattr(644,root,root,755)
 %doc CHANGELOG
 %attr(755,root,root) %{_bindir}/frogatto
+
+%files data
+%defattr(644,root,root,755)
 %{_datadir}/frogatto
