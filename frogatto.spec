@@ -35,9 +35,7 @@ however, we're not trying to clone any specific game.
 %package data
 Summary:	data for frogatto
 Group:		X11/Applications/Games
-%if "%{_rpmversion}" >= "5"
 BuildArch:	noarch
-%endif
 
 %description data
 data for frogatto.
